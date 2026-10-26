@@ -1,3 +1,6 @@
+# LIVE DEMO:
+https://notes-mind.vercel.app/dashboard
+
 # NotesMind — AI Notes Summarizer
 
 Upload a PDF or paste text → get AI summaries, quizzes, flashcards, and chat with your notes.
