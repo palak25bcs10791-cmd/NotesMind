@@ -1,0 +1,318 @@
+/* ── design tokens ── */
+:root {
+  --bg: #f6f7fb;
+  --card: #fff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --primary: #5b5bf0;
+  --danger: #e5484d;
+  --ok: #2e9e5b;
+  --border: #e5e7ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ── layout ── */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+/* ── navbar ── */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-right {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* ── card ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+/* ── auth form ── */
+.auth {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+/* ── form inputs ── */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ── buttons ── */
+.btn {
+  background: var(--primary);
+  color: #fff;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  display: inline-block;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn.small {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn.danger {
+  background: var(--danger);
+}
+
+/* ── typography helpers ── */
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+  margin: 0;
+}
+
+/* 3-line clamp for note card previews */
+.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* ── tags ── */
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.tag {
+  background: #eceafe;
+  color: var(--primary);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tag.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── tabs ── */
+.tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+.tab {
+  background: none;
+  border: 0;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font: inherit;
+  color: var(--muted);
+}
+
+.tab.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  font-weight: 600;
+}
+
+/* ── summary display ── */
+.summary {
+  white-space: pre-wrap;
+  font-family: inherit;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── quiz options ── */
+.option {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option input {
+  width: auto;
+}
+
+.option.selected {
+  border-color: var(--primary);
+}
+
+.option.correct {
+  background: #e6f6ec;
+  border-color: var(--ok);
+}
+
+.option.wrong {
+  background: #fdeaea;
+  border-color: var(--danger);
+}
+
+/* ── flashcard ── */
+.flash {
+  width: 100%;
+  max-width: 520px;
+  min-height: 200px;
+  background: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.flash.flipped {
+  background: #eceafe;
+}
+
+.hint {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+}
+
+/* ── chat ── */
+.chat {
+  height: 340px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.msg {
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 80%;
+  white-space: pre-wrap;
+}
+
+.msg.user {
+  background: var(--primary);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.msg.ai {
+  background: #f0f1f6;
+  align-self: flex-start;
+}
